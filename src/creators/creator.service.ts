@@ -11,9 +11,21 @@ export class CreatorService {
     private readonly creatorModel: ReturnModelType<typeof Creators>,
   ) {}
 
-  public findAll() {
-    return this.creatorModel.find({ status: true });
+  public async findAll(status: boolean = true): Promise<any> {
+    const creators = await this.creatorModel.find({ status }).lean();
+
+    const response = creators.map((creator) => {
+      const { password, email, ...result } = creator;
+
+      // TODO: apos fazer logica para pegar quem esta online. Mudar para true e deixar "link".
+      result.active = false;
+
+      return result;
+    });
+
+    return response;
   }
+
   public create(dto: AddCreatorDTO): Promise<Creators> {
     const created = new this.creatorModel(dto);
     return created.save();
