@@ -14,7 +14,7 @@ export class CreatorService {
   public findAll() {
     return this.creatorModel.find({ status: true });
   }
-  public create(dto: AddCreatorDTO): any {
+  public create(dto: AddCreatorDTO): Promise<Creators> {
     const created = new this.creatorModel(dto);
     return created.save();
   }
