@@ -1,11 +1,7 @@
-import {
-  buildSchema,
-  getModelForClass,
-  prop
-} from '@typegoose/typegoose';
+import { buildSchema, getModelForClass, prop } from '@typegoose/typegoose';
 
 interface ISocials {
-  [key: string]: string
+  [key: string]: string;
 }
 
 export class Creators {
@@ -17,16 +13,16 @@ export class Creators {
 
   @prop({ required: true })
   public email: string;
-  
+
   @prop({ required: false })
   public password: string;
-  
+
   @prop({ required: false })
   public tags: string[];
 
   @prop({ required: false })
   public socials: ISocials[];
-  
+
   @prop({ required: false })
   public photo: string;
 
@@ -35,6 +31,8 @@ export class Creators {
 
   @prop({ required: false, default: () => true })
   public status: boolean;
+
+  public active?: boolean;
 }
 
 const CreatorsModel = getModelForClass(Creators);
