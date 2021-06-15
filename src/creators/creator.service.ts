@@ -1,7 +1,7 @@
 import { InjectModel } from '@nestjs/mongoose';
 import { ReturnModelType } from '@typegoose/typegoose';
 import { Injectable } from '@nestjs/common';
-import { addCreatorDTO } from './dto';
+import { AddCreatorDTO } from './dto';
 import { Creators, CreatorFeatureProvider } from './schemas/creator.schema';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class CreatorService {
   public findAll() {
     return this.creatorModel.find({ status: true });
   }
-  public create(dto: addCreatorDTO): any {
+  public create(dto: AddCreatorDTO): Promise<Creators> {
     const created = new this.creatorModel(dto);
     return created.save();
   }
