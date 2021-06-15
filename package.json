@@ -31,7 +31,7 @@
     "@nestjs/mongoose": "^6.3.1",
     "@nestjs/passport": "^6.2.0",
     "@nestjs/platform-express": "6.11.8",
-    "@nestjs/swagger": "^4.5.12",
+    "@nestjs/swagger": "^4.8.0",
     "@typegoose/typegoose": "^6.4.0",
     "@types/bcrypt": "^3.0.0",
     "@types/gravatar": "^1.8.1",
@@ -49,7 +49,7 @@
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
     "rxjs": "6.5.4",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.5.1",

@@ -1,8 +1,12 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { ApiBody, ApiCreatedResponse, ApiForbiddenResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatorService } from './creator.service';
-import { addCreatorDTO } from './dto';
+import { AddCreatorDTO } from './dto';
 
-@Controller("creator")
+const _creator = 'creator';
+
+@ApiTags(_creator)
+@Controller(_creator)
 export class CreatorController {
   constructor(private readonly creatorService: CreatorService) {}
 
@@ -11,8 +15,11 @@ export class CreatorController {
     return this.creatorService.findAll();
   }
 
+  @ApiBody({ type: [AddCreatorDTO] })
   @Post()
-  async create(@Body() dto: addCreatorDTO): Promise<any> {
+  @ApiCreatedResponse({ description: 'The Creator has been successfully created.'})
+  @ApiForbiddenResponse({ description: 'Forbidden.'})
+  async create(@Body() dto: AddCreatorDTO): Promise<any> {
     return this.creatorService.create(dto);
   }
 
