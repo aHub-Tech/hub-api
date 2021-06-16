@@ -1,5 +1,6 @@
+import { ApitwitchModule } from './api-twitch/apitwitch.module';
 import { CreatorModule } from './creators/creator.module';
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -8,10 +9,15 @@ import configuration from './config/configuration';
 
 @Module({
   imports: [
+    ApitwitchModule,
     CreatorModule,
     ConfigModule.forRoot({
       load: [configuration],
       isGlobal: true,
+    }),
+    HttpModule.register({
+      timeout: 5000,
+      maxRedirects: 5,
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
