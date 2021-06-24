@@ -1,58 +1,49 @@
-<h1 align="center">Hub-Api</h1>
-<p align="center">
-<!--   <a href="#about-bookmark">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#technologies-rocket">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#license-memo">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#contributors-star">Contribuitors</a> -->
-</p>
+<h1 align="center">
+    HUB - API <br /><br />
+    <img src="https://img.shields.io/github/contributors/aHub-Tech/hub-api.svg?style=for-the-badge"/>
+    <img src="https://img.shields.io/github/forks/aHub-Tech/hub-api.svg?style=for-the-badge"/>
+    <img src="https://img.shields.io/github/stars/aHub-Tech/hub-api.svg?style=for-the-badge"/>
+    <img src="https://img.shields.io/github/issues/aHub-Tech/hub-api.svg?style=for-the-badge"/>
+    <img src="https://img.shields.io/github/license/aHub-Tech/hub-api.svg?style=for-the-badge"/>
+</h1>
 
-## About :bookmark:
+  <h3 align="center">
+     The Hub-API is a Backend developed for Hub Community on <a href="https://ahub.tech/discord">Discord</a> 🤖
+    <br />
+    <a href="https://ahub-api.herokuapp.com/">View ApiDocs</a>
+    ·
+    <a href="https://github.com/aHub-Tech/hub-api/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/aHub-Tech/hub-api/issues">Request Feature</a>
+  </h3>
 
-The **Hub-API** is a Backend developed for Hub Community on [discord](https://ahub.tech/discord) 🤖
-  
-## Link 🕸️:
+<h2 id="technologies"> 🛠 Technologies </h2>
 
-The **Hub-API** link is: [Hub-API](https://ahub-api.herokuapp.com) 🤖
+- [TypeScript](https://www.typescriptlang.org/)
+- [NestJS](https://nestjs.org/#/)
+- [MongoDb](https://atlas.mongodb.com/)
 
-## Technologies :rocket:
-
--  [TypeScript](https://www.typescriptlang.org/)
--  [Nest.js](https://nestjs.org/#/)
--  [MongoDb](https://atlas.mongodb.com/)
-
-## License :memo:
-
-This project is licensed under the terms of the MIT license. View the file [LICENSE](LICENSE.md) for more details.
-
-## Contributors :star:
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/caio-emidio"><img src="https://avatars.githubusercontent.com/u/5342402?s=100" width="100px;" alt="Caio Emidio"/><br /><sub><b>Caio "Em1dio" Carnelos</b></sub></a><br /></td>
-   </tr>
-</table>
-
-## Installation
+<h2 id="usage" > 👷 How to install and Running the APP </h2>
 
 ```bash
+# Clone the repository
+$ git clone https://github.com/aHub-Tech/hub-api.git
+
+# Going to project folder
+$ cd hub-api
+
+# Install all dependencies
 $ npm install
-```
 
-## Running the app
-
-```bash
-# development
+# Start with development
 $ npm run start
 
-# watch mode
+# Start in watch mode
 $ npm run start:dev
 
-# production mode
+# Start in production mode
 $ npm run start:prod
-```
 
-## Test
-
-```bash
 # unit tests
 $ npm run test
 
@@ -62,3 +53,11 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+<h2 id="contribution"> 🤝 Contributors </h2>
+
+<img src = "https://contrib.rocks/image?repo=aHub-Tech/hub-api"/>
+
+<h2 id="license"> 📝 License </h2>
+
+This project is licensed under the terms of the MIT license. View the file LICENSE for more details.
