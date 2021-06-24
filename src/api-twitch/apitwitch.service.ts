@@ -8,22 +8,21 @@ import {
 @Injectable()
 export class ApitwitchService {
   constructor(private httpService: HttpService) {}
-  public getUserId(id: string) {
-    return this.getId(id);
 
-    // return id;
-  }
-
-  public async getPhoto(id: string) {
+  public async getTwitchDetails(id: string) {
     const response = await this.getId(id);
 
-    return response.logo;
+    return {
+      displayName: response.display_name,
+      twitchId: response._id,
+      photo: response.logo,
+    };
   }
 
   private async getId(name: string) {
     const headersRequest = {
       'Client-ID': 'tjs9gqghzdfuuycllhiq8erjp4mdk9',
-      'Accept': 'application/vnd.twitchtv.v5+json',
+      Accept: 'application/vnd.twitchtv.v5+json',
     };
 
     const url = `https://api.twitch.tv/kraken/users?login=${name}`;

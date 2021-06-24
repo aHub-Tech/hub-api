@@ -10,7 +10,7 @@ export class ApitwitchController {
   constructor(private readonly apitwitchService: ApitwitchService) {}
     @Get(':id')
     getPhoto(@Param('id') id: string,) {
-      return this.apitwitchService.getPhoto(id);
+      return this.apitwitchService.getTwitchDetails(id);
     }
 
 }

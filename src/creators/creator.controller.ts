@@ -23,5 +23,4 @@ export class CreatorController {
   async create(@Body() dto: AddCreatorDTO): Promise<Creators> {
     return this.creatorService.create(dto);
   }
-
 }

@@ -26,6 +26,12 @@ export class Creators {
   @prop({ required: false })
   public photo: string;
 
+  @prop({ required: false })
+  public displayName: string;
+
+  @prop({ required: false })
+  public twitchId: string;
+
   @prop({ required: false, default: () => new Date() })
   public createAt: Date;
 

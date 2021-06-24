@@ -1,14 +1,17 @@
 import { InjectModel } from '@nestjs/mongoose';
 import { ReturnModelType } from '@typegoose/typegoose';
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { AddCreatorDTO } from './dto';
 import { Creators, CreatorFeatureProvider } from './schemas/creator.schema';
+import { ApitwitchService } from 'src/api-twitch/apitwitch.service';
 
 @Injectable()
 export class CreatorService {
   constructor(
     @InjectModel(CreatorFeatureProvider.name)
     private readonly creatorModel: ReturnModelType<typeof Creators>,
+    @Inject(forwardRef(() => ApitwitchService))
+    private apiTwitchService: ApitwitchService
   ) {}
 
   public async findAll(status: boolean = true): Promise<any> {
@@ -26,8 +29,13 @@ export class CreatorService {
     return response;
   }
 
-  public create(dto: AddCreatorDTO): Promise<Creators> {
-    const created = new this.creatorModel(dto);
+  public async create(dto: AddCreatorDTO): Promise<Creators> {
+    const twitch = dto.socials.find(x => x.twitch).twitch.split('/');
+    const nameTwitch = twitch[twitch.length -1 ];
+    const dadosTwitch = await this.apiTwitchService.getTwitchDetails(nameTwitch);
+
+    const created = new this.creatorModel({...dto, ...dadosTwitch});
     return created.save();
   }
+
 }
