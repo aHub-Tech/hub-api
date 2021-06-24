@@ -14,6 +14,12 @@ export class ApitwitchService {
     // return id;
   }
 
+  public async getPhoto(id: string) {
+    const response = await this.getId(id);
+
+    return response.logo;
+  }
+
   private async getId(name: string) {
     const headersRequest = {
       'Client-ID': 'tjs9gqghzdfuuycllhiq8erjp4mdk9',
@@ -25,7 +31,7 @@ export class ApitwitchService {
       const response = await this.httpService
         .get(url, { headers: headersRequest })
         .toPromise();
-      return response.data;
+      return response.data.users[0];
     } catch (error) {
       throw new HttpException(error, HttpStatus.EXPECTATION_FAILED);
     }

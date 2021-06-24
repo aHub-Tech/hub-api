@@ -9,8 +9,8 @@ const _apiTwitch = 'api-twitch';
 export class ApitwitchController {
   constructor(private readonly apitwitchService: ApitwitchService) {}
     @Get(':id')
-    getUserId(@Param('id') id: string,) {
-      return this.apitwitchService.getUserId(id);
+    getPhoto(@Param('id') id: string,) {
+      return this.apitwitchService.getPhoto(id);
     }
 
 }
