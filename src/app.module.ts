@@ -1,3 +1,4 @@
+import { EventsModule } from './events/events.module';
 import { ApitwitchModule } from './api-twitch/apitwitch.module';
 import { CreatorModule } from './creators/creator.module';
 import { HttpModule, Module } from '@nestjs/common';
@@ -9,6 +10,7 @@ import configuration from './config/configuration';
 
 @Module({
   imports: [
+    EventsModule,
     ApitwitchModule,
     CreatorModule,
     ConfigModule.forRoot({
