@@ -1,31 +1,10 @@
-import {
-  IsArray,
-  IsDate,
-  IsEmail,
-  IsEnum,
-  IsOptional,
-  IsString,
-  MaxLength,
-  MinLength,
-} from 'class-validator';
-
-export enum Plataform {
-    Twitch = 'twitch',
-    Youtube = 'youtube',
-    Discord = 'discord',
-    Linkedin = 'linkedin',
-    Instagram = 'instagram'
-  }
-
-class EventLinkDTO {
-    channel: Plataform;
-    link: string;
-}
+import { IsDate, IsEnum, IsOptional, IsString } from 'class-validator';
+import { EventLink, Plataform } from '../schemas/events.schema';
 
 export class AddEventsDTO {
   @IsString()
   photo: string;
-  
+
   @IsString()
   name: string;
 
@@ -36,13 +15,9 @@ export class AddEventsDTO {
   eventDate: Date;
 
   @IsString()
-  hosters: string[]
+  hosters: string[];
 
   @IsOptional()
   @IsEnum(Plataform)
-  eventLink: EventLinkDTO;
-
-  @IsOptional()
-  @IsDate()
-  createAt: Date;
+  eventLink: EventLink;
 }

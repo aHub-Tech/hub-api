@@ -3,11 +3,12 @@ import { EventsController } from './events.controller';
 import { forwardRef, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ApitwitchModule } from 'src/api-twitch/apitwitch.module';
+import { EventsFeatureProvider } from './schemas/events.schema';
 
 @Module({
   imports: [
-    // MongooseModule.forFeature([EventsFeatureProvider]),
-    forwardRef(() => ApitwitchModule),
+    MongooseModule.forFeature([EventsFeatureProvider]),
+    // forwardRef(() => ApitwitchModule),
   ],
   controllers: [EventsController],
   providers: [EventsService],
