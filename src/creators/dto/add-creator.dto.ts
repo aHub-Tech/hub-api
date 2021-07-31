@@ -3,15 +3,27 @@ import {
   IsArray,
   IsDate,
   IsEmail,
+  IsEnum,
   IsOptional,
   IsString,
   MaxLength,
   MinLength,
 } from 'class-validator';
+import { SocialType } from '../creator.service';
 
 export class Socials {
-  // @ApiProperty() TODO: VERIFICAR PQ N ESTA FUNCIONANDO.
-  [key: string]: string;
+  @ApiProperty({
+    description: 'Type of SocialMedia'
+  })
+  @IsEnum(SocialType)
+  social: SocialType;
+
+  @ApiProperty({
+    description: 'Link of SocialMedia',
+    minLength: 1,
+  })
+  @IsString()
+  link: string;
 }
 
 export class AddCreatorDTO {
