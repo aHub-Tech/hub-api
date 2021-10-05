@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    context: .
+    build: ./
+    container_name: hub_api
+    ports:
+      - '3000:${PORT}'
+    env_file:
+      - .env
