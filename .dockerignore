@@ -1,0 +1,19 @@
+# node_modules
+node_modules
+
+# Git
+.git
+.gitignore
+README.md
+
+# Tests
+tests
+
+# Lint
+.eslintrc.js
+.prettierrc
+
+# Docker
+Dockerfile
+docker-compose
+.dockerignore
