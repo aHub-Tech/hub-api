@@ -2,7 +2,7 @@ FROM node:alpine AS build
 
 WORKDIR /usr/app
 
-LABEL name="buid"
+LABEL name="build"
 
 COPY package*.json ./
 COPY tsconfig*.json ./
