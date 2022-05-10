@@ -3,10 +3,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AprenderModule } from './aprender/aprender.module';
 import configuration from './config/configuration';
 
 @Module({
   imports: [
+    AprenderModule,
     ConfigModule.forRoot({
       load: [configuration],
       isGlobal: true,
